@@ -1,11 +1,22 @@
 :root {
 	// base
-	--font-family: "Golos Text", sans-serif;
-	--content-width: 1192px;
+	--font-family: "Monserrat", sans-serif;
+	--content-width: 1200px;
 	--container-offset: 20px;
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
 	// colors
 	--white-color: #fff;
-	--black-color: #1e1e1e;
+	--black-color: #263238;
+	--real-black-color: #000;
+	--light-blue-color: #37aee2;
+	--blue-color: #37aee2;
+	--dark-blue-color: #127bb7;
+	--green-color: #25d366;
+	--grey-color: #7eafcb;
+	--title-color: #0bbbef;
+	--secondary-button-color: #005893;
+	--thirdly-button-color: #3298dc;
+	--item-bg-color: #e9faff;
+	--service-title-color: #142647;
 }

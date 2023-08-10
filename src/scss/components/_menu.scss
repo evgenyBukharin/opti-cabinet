@@ -1,0 +1,83 @@
+.menu {
+	display: none;
+	z-index: 999;
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: flex-end;
+	background: rgba(0, 0, 0, 0.8);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+	&-active {
+		opacity: 1;
+		visibility: visible;
+		& .menu__container {
+			transform: translateX(0);
+		}
+	}
+	&__container {
+		background: var(--white-color);
+		padding: 40px;
+		padding-top: 90px;
+		padding-right: 18px;
+		transform: translateX(100%);
+		transition: transform 0.4s ease 0.2s;
+		min-width: 300px;
+		&-btns {
+			display: flex;
+			gap: 15px;
+		}
+	}
+	& .header {
+		&__container {
+			&-tel {
+				display: block;
+			}
+		}
+		&__button {
+			&-text {
+				display: inline-block;
+			}
+			&-icon {
+				&-tg {
+					display: flex;
+				}
+				&-whatsapp {
+					display: flex;
+				}
+				&-user {
+					display: flex;
+				}
+			}
+		}
+	}
+	&__nav {
+		display: block;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 18px;
+	}
+	&__item {
+		&:not(:last-child) {
+			margin-right: 0;
+			margin-bottom: 18px;
+		}
+	}
+	&__social {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	&__link {
+		font-size: 18px;
+		line-height: 18px;
+	}
+}
+@media (max-width: 940px) {
+	.menu {
+		display: flex;
+	}
+}

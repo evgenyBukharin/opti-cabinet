@@ -1,0 +1,14 @@
+.burger {
+	@include burger;
+	--burger-width: 35px;
+	--burger-height: 25px;
+	--burger-line-height: 5px;
+	color: #09718f;
+	&__line {
+		border-radius: 4px;
+	}
+	&::before,
+	&::after {
+		border-radius: 4px;
+	}
+}

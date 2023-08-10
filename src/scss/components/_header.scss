@@ -1,4 +1,173 @@
 .header {
+	padding-top: 18px;
+	padding-bottom: 18px;
 	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+	}
+	&__link {
+		color: var(--real-black-color);
+		font-size: 18px;
+		font-weight: 500;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+	&__icon {
+		&-tel {
+			margin-right: 10px;
+		}
+	}
+	&__social {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+	&__button {
+		&-text {
+			padding: 9px 16px;
+			border-radius: 5px;
+			background: var(--dark-blue-color);
+			color: var(--white-color);
+			font-size: 14px;
+			font-weight: 500;
+			min-height: 35px;
+			transition: background 0.4s ease;
+			&:hover {
+				background: var(--service-title-color);
+			}
+		}
+		&-icon {
+			min-height: 35px;
+			height: 35px;
+			min-width: 35px;
+			width: 35px;
+			border-radius: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&-tg {
+				background: var(--light-blue-color);
+			}
+			&-whatsapp {
+				background: var(--green-color);
+			}
+			&-user {
+				background: var(--dark-blue-color);
+			}
+		}
+	}
+	&__burger {
+		display: none;
+	}
+}
+
+@media (max-width: 1260px) {
+	.header {
+		&__link {
+			font-size: 14px;
+		}
+		&__button {
+			&-text {
+				padding: 8px 16px;
+				font-size: 12px;
+				min-height: 30px;
+			}
+			&-icon {
+				min-height: 30px;
+				height: 30px;
+				min-width: 30px;
+				width: 30px;
+			}
+		}
+		&__logo {
+			width: 58px;
+			height: 40px;
+		}
+		&__icon {
+			&-tg {
+				width: 21px;
+				height: 18px;
+			}
+			&-whatsapp {
+				width: 18px;
+				height: 19px;
+			}
+			&-user {
+				width: 19px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 940px) {
+	.header {
+		&__burger {
+			display: inline-block;
+			position: relative;
+			z-index: 1000;
+		}
+		&__button {
+			&-icon {
+				min-height: 40px;
+				height: 40px;
+				min-width: 40px;
+				width: 40px;
+				&-whatsapp {
+					display: none;
+				}
+			}
+		}
+		&__logo {
+			width: 73px;
+			height: 50px;
+		}
+		&__icon {
+			&-tg {
+				width: 28px;
+				height: 24px;
+			}
+			&-user {
+				width: 24px;
+				height: 25px;
+			}
+		}
+	}
+}
+
+@media (max-width: 580px) {
+	.header {
+		&__button {
+			&-icon {
+				min-height: 40px;
+				height: 40px;
+				min-width: 40px;
+				width: 40px;
+				&-tg {
+					display: none;
+				}
+				&-user {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		&__container {
+			&-tel {
+				display: none;
+			}
+		}
+		&__button {
+			&-text {
+				display: none;
+			}
+		}
 	}
 }
