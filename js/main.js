@@ -4,12 +4,31 @@
 /***/ 732:
 /***/ (() => {
 
-console.log("example-module");
 const burger = document.querySelector(".burger");
 const menu = document.querySelector(".menu");
 burger.addEventListener("click", () => {
   burger.classList.toggle("burger--active");
   menu.classList.toggle("menu-active");
+});
+
+/***/ }),
+
+/***/ 59:
+/***/ (() => {
+
+const progressBars = document.querySelectorAll(".hero__progress");
+progressBars.forEach(bar => {
+  let track = bar.querySelector(".hero__track");
+  let currentCountEl = bar.parentNode.querySelector(".hero__text-current");
+  let currentCount = currentCountEl.getAttribute("data-current");
+  if (currentCount == 0) {
+    currentCountEl.classList.add("hero__text-stat-bigger-red");
+    track.classList.add("hero__track-red");
+    return;
+  }
+  let allCount = bar.parentNode.querySelector(".hero__text-all").getAttribute("data-all");
+  let widthPersent = currentCount / allCount * 100;
+  track.style.width = widthPersent + "%";
 });
 
 /***/ })
@@ -55,7 +74,10 @@ var __webpack_exports__ = {};
 });
 // EXTERNAL MODULE: ./src/js/components/burger.js
 var burger = __webpack_require__(732);
+// EXTERNAL MODULE: ./src/js/components/calculateProgress.js
+var calculateProgress = __webpack_require__(59);
 ;// CONCATENATED MODULE: ./src/js/_components.js
+
 
 ;// CONCATENATED MODULE: ./src/js/main.js
 
