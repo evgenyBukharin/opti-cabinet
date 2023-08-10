@@ -1,0 +1,11 @@
+:root {
+	// base
+	--font-family: "Golos Text", sans-serif;
+	--content-width: 1192px;
+	--container-offset: 20px;
+	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+	// colors
+	--white-color: #fff;
+	--black-color: #1e1e1e;
+}
