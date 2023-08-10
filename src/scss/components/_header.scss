@@ -1,6 +1,7 @@
 .header {
 	padding-top: 18px;
 	padding-bottom: 18px;
+	font-family: "Golos Text";
 	&__container {
 		display: flex;
 		justify-content: space-between;
@@ -49,7 +50,7 @@
 			align-items: center;
 			justify-content: center;
 			&-tg {
-				background: var(--light-blue-color);
+				background: var(--blue-color);
 			}
 			&-whatsapp {
 				background: var(--green-color);

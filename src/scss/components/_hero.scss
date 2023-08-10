@@ -1,4 +1,320 @@
 .hero {
+	font-family: "Golos Text";
+	padding-top: 40px;
 	&__container {
+		display: flex;
+		gap: 20px;
+		&-buttons {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+		}
+		&-stats {
+			display: flex;
+			justify-content: space-between;
+			gap: 15px;
+		}
+		&-balance {
+			padding: 13px 18px 11px 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 13px;
+		}
+		&-manager {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-left: 7px;
+		}
+	}
+	&__column {
+		&-user {
+			max-width: 300px;
+		}
+		&-tarif {
+			max-width: 600px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 20px;
+		}
+		&-info {
+			max-width: 260px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 28px;
+		}
+		&-inner {
+			&-center {
+				max-width: 263px;
+				width: 100%;
+			}
+			&-buttons {
+				max-width: 100px;
+				width: 100%;
+			}
+		}
+	}
+	&__border {
+		border-radius: 10px;
+		border: 1px solid #126797;
+		background: var(--white-color);
+	}
+	&__user {
+		padding: 20px;
+		display: flex;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
+	&__tarif {
+		padding: 15px 20px;
+		padding-bottom: 14px;
+		display: flex;
+		justify-content: space-between;
+		gap: 15px;
+	}
+	&__title {
+		&-user {
+			color: var(--real-black-color);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: normal;
+			max-width: 145px;
+		}
+		&-tarif {
+			color: var(--darkest-blue-color);
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			margin-bottom: 9px;
+			&-small {
+				font-size: 8px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+				margin-bottom: 16px;
+				&-darker {
+					font-weight: 500;
+					margin-bottom: 8px;
+				}
+			}
+		}
+		&-balance {
+			color: var(--real-black-color);
+			text-align: right;
+			font-family: "Open Sans";
+			font-size: 8px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			margin-bottom: 6px;
+		}
+		&-billing {
+			color: var(--real-black-color);
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+		}
+		&-manager {
+			color: var(--real-black-color);
+			font-family: "Golos Text";
+			font-size: 10px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+		&-name {
+			color: var(--real-black-color);
+			font-family: "Golos Text";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			margin-bottom: 9px;
+		}
+		&-faq {
+			color: var(--white-color);
+			text-align: center;
+			font-family: "Golos Text";
+			font-size: 32px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+		}
+	}
+	&__reports {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	&__report {
+		width: 100%;
+		padding: 16px 36px;
+		border-radius: 10px;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		background: var(--light-blue-color);
+		&-deals {
+			background: var(--lighter-blue-color);
+		}
+	}
+	&__button {
+		padding: 11px;
+		width: 100%;
+		text-align: center;
+		text-decoration: none;
+		color: var(--real-black-color);
+		font-size: 10px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		border-radius: 5px;
+		background: var(--grey-color);
+	}
+	&__stat {
+		width: 100%;
+		padding: 6px 14px 11px 10px;
+		border-radius: 5px;
+		border: 1px solid var(--dark-blue-color);
+	}
+	&__text {
+		&-stat {
+			color: var(--real-black-color);
+			font-size: 10px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			&-bigger {
+				position: relative;
+				color: var(--dark-blue-color);
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				margin-right: 10px;
+				&-red {
+					color: var(--red-color);
+				}
+				&::after {
+					content: url("../img/slash.svg");
+					position: absolute;
+					top: 1px;
+					right: -6px;
+					width: 6px;
+					height: 10px;
+				}
+			}
+		}
+		&-blue {
+			color: var(--track-color);
+		}
+		&-faq {
+			color: var(--faq-text-color);
+			font-family: "Golos Text";
+			font-size: 8px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			margin-bottom: 5px;
+		}
+	}
+	&__progress {
+		position: relative;
+		height: 4px;
+		width: 100%;
+		border-radius: 1px;
+		background: rgba(11, 187, 239, 0.23);
+		margin-top: 3px;
+	}
+	&__track {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 1px;
+		height: 100%;
+		background: var(--track-color);
+		&-red {
+			background: var(--red-color);
+			width: 4px;
+		}
+	}
+	&__value {
+		color: var(--real-black-color);
+		font-family: "Open Sans";
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 10px;
+			height: 13px;
+			background: url("../img/rouble.svg") no-repeat;
+			margin-left: 5px;
+		}
+	}
+	&__item {
+		max-width: 124px;
+		width: 100%;
+		padding: 7px 9px 4px 8px;
+		border-radius: 5px;
+		border: 1px solid rgba(37, 69, 128, 0.2);
+		background: var(--white-color);
+	}
+	&__balance {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+	}
+	&__services {
+		display: flex;
+		justify-content: flex-end;
+		gap: 15px;
+		&-manager {
+			justify-content: unset;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+	&__service {
+		padding: 5px 10px;
+		color: var(--real-black-color);
+		font-family: "Golos Text";
+		font-size: 8px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		border-radius: 5px;
+		background: var(--grey-color);
+		&-manager {
+			font-size: 10px;
+		}
+	}
+	&__manager {
+		padding: 10px;
+	}
+	&__row {
+		&-manager {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 42px;
+		}
+	}
+	&__faq {
+		padding: 6px 10px;
+		border-radius: 10px;
+		background: var(--track-color);
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
 	}
 }
