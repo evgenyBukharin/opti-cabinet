@@ -1,6 +1,7 @@
 :root {
 	// base
 	--font-family: "Monserrat", sans-serif;
+	--second-family: "Open Sans", sans-serif;
 	--content-width: 1200px;
 	--container-offset: 20px;
 	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
@@ -14,9 +15,12 @@
 	--blue-color: #37aee2;
 	--dark-blue-color: #127bb7;
 	--darkest-blue-color: #142647;
+	--dark-green-color: #137d11;
 	--green-color: #25d366;
 	--grey-color: #f2eeee;
 	--track-color: #0bbbef;
 	--red-color: #ef0b0b;
 	--faq-text-color: #005893;
+	--deals-border-color: #307aa4;
+	--border-color: rgba(225, 83, 53, 0.1);
 }

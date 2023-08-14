@@ -1,6 +1,6 @@
 .hero {
 	font-family: "Golos Text";
-	padding-top: 40px;
+	padding: 40px 0;
 	&__container {
 		display: flex;
 		gap: 20px;
@@ -262,6 +262,11 @@
 			margin-left: 5px;
 		}
 	}
+	&__balance {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+	}
 	&__item {
 		max-width: 124px;
 		width: 100%;
@@ -269,11 +274,15 @@
 		border-radius: 5px;
 		border: 1px solid rgba(37, 69, 128, 0.2);
 		background: var(--white-color);
-	}
-	&__balance {
-		display: flex;
-		justify-content: space-between;
-		gap: 12px;
+		&-green {
+			border: 1px solid #cef2cd;
+		}
+		&-red {
+			border: 1px solid #fdcdcd;
+		}
+		&-blue {
+			border: 1px solid #c0eefd;
+		}
 	}
 	&__services {
 		display: flex;
