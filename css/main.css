@@ -11,11 +11,14 @@
   --blue-color: #37aee2;
   --dark-blue-color: #127bb7;
   --darkest-blue-color: #142647;
+  --dark-green-color: #137d11;
   --green-color: #25d366;
   --grey-color: #f2eeee;
   --track-color: #0bbbef;
   --red-color: #ef0b0b;
-  --faq-text-color: #005893
+  --faq-text-color: #005893;
+  --deals-border-color: #307aa4;
+  --border-color: rgba(225, 83, 53, 0.1)
 }
 .custom-checkbox__field:checked + .custom-checkbox__content::after {
   opacity: 1
@@ -134,6 +137,8 @@ p {
   margin: 0
 }
 .header {
+  position: relative;
+  z-index: 970;
   padding-top: 18px;
   padding-bottom: 18px;
   font-family: "Golos Text"
@@ -439,7 +444,7 @@ p {
 }
 .hero {
   font-family: "Golos Text";
-  padding-top: 40px
+  padding: 40px 0
 }
 .hero__container {
   display: -webkit-box;
@@ -741,14 +746,6 @@ p {
   background: url(../img/rouble.svg) no-repeat;
   margin-left: 5px
 }
-.hero__item {
-  max-width: 124px;
-  width: 100%;
-  padding: 7px 9px 4px 8px;
-  border-radius: 5px;
-  border: 1px solid rgba(37,69,128,.2);
-  background: var(--white-color)
-}
 .hero__balance {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -757,6 +754,23 @@ p {
   -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 12px
+}
+.hero__item {
+  max-width: 124px;
+  width: 100%;
+  padding: 7px 9px 4px 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(37,69,128,.2);
+  background: var(--white-color)
+}
+.hero__item-green {
+  border: 1px solid #cef2cd
+}
+.hero__item-red {
+  border: 1px solid #fdcdcd
+}
+.hero__item-blue {
+  border: 1px solid #c0eefd
 }
 .hero__services {
   display: -webkit-box;
@@ -891,4 +905,612 @@ p {
 .burger::before,
 .burger__line {
   border-radius: 4px
+}
+.deals__container {
+  border-radius: 10px;
+  border: 1px solid var(--deals-border-color);
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 10px
+}
+.deals__aside {
+  max-width: 170px;
+  min-width: 170px
+}
+.deals__info {
+  margin-bottom: 48px
+}
+.deals__balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px
+}
+.deals__item {
+  width: 100%;
+  padding: 7px 9px 4px 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(37,69,128,.2);
+  background: var(--white-color)
+}
+.deals__item-green {
+  border: 1px solid #cef2cd
+}
+.deals__item-red {
+  border: 1px solid #fdcdcd
+}
+.deals__item-blue {
+  border: 1px solid #c0eefd
+}
+.deals__title-balance {
+  color: var(--real-black-color);
+  text-align: right;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 6px
+}
+.deals__title-aside {
+  margin-bottom: 8px;
+  color: var(--real-black-color);
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal
+}
+.deals__value {
+  color: var(--real-black-color);
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.deals__value::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 18px;
+  background: url(../img/rouble-bigger.svg) no-repeat;
+  margin-left: 5px
+}
+.deals__text-blue {
+  color: var(--track-color)
+}
+.deals__button {
+  width: 100%;
+  padding: 9px 14px 11px;
+  color: var(--white-color);
+  font-family: "Golos Text";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background: var(--track-color);
+  text-decoration: none
+}
+.deals__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 15px
+}
+.deals__tip {
+  color: var(--real-black-color);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px
+}
+.deals__tip-green {
+  background: #cef2cd
+}
+.deals__tip-red {
+  background: #fdcdcd
+}
+.deals__tip-blue {
+  background: #c0eefd
+}
+.deals__table {
+  width: 100%;
+  outline: 1px solid var(--border-color);
+  outline-offset: -1px;
+  border-radius: 5px
+}
+.deals__header {
+  border-radius: 5px;
+  background: var(--track-color)
+}
+.deals__header .hero__cell:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px
+}
+.deals__header .hero__cell:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px
+}
+.deals__col {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+.deals__col-id {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 60px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-status {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 40px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-date {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 130px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-company {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 190px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-deal {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 350px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-summ {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-summ-green span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #cef2cd
+}
+.deals__col-summ-red span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #fdcdcd
+}
+.deals__col-summ-blue span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #c0eefd
+}
+.deals__col-cashback {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100px;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__col-cashback-green span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #cef2cd
+}
+.deals__col-cashback-red span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #fdcdcd
+}
+.deals__col-cashback-blue span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #c0eefd
+}
+.deals__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.deals__row:not(:first-child) {
+  -webkit-box-shadow: 0 -1px 0 var(--border-color);
+  box-shadow: 0 -1px 0 var(--border-color)
+}
+.deals__row .hero__cell:first-child {
+  padding-left: 9px;
+  border-left: 1px solid transparent!important
+}
+.deals__row .hero__cell:last-child {
+  border-right: 1px solid transparent!important;
+  padding-right: 9px
+}
+.deals__cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 16px 6px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0;
+  color: var(--black-color);
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  -webkit-transition: border .2s;
+  transition: border .2s
+}
+.deals__cell-header {
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--white-color);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.deals__cell-header-hide-after::after {
+  opacity: 0
+}
+.deals__cell-header:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: var(--border-color);
+  width: 1px;
+  height: 55%;
+  -webkit-transition: opacity .4s;
+  transition: opacity .4s
+}
+.deals__cell-hovered {
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color)
+}
+.deals__cell a {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: none
+}
+.deals__circle-green circle {
+  fill: var(--dark-green-color)
+}
+.deals__circle-red circle {
+  fill: var(--red-color)
+}
+.deals__circle-blue circle {
+  fill: var(--blue-color)
+}
+.reg {
+  position: fixed;
+  inset: 0;
+  z-index: 960;
+  padding: 90px 0
+}
+.reg__container {
+  padding-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.reg__form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #126797
+}
+.reg__inputs {
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 45px;
+  margin-bottom: 35px
+}
+.reg__input {
+  border-radius: 5px;
+  border: 1px solid rgba(18,103,151,.25);
+  background: #fff;
+  padding: 6px 12px 7px;
+  color: #000;
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal
+}
+.reg__input::-webkit-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__input::-moz-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__input:-ms-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__input::-ms-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__input::placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__title {
+  padding-top: 17px;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+  font-family: "Golos Text";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.reg__button {
+  color: #000;
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 16px 36px;
+  border-radius: 10px;
+  background: #a9dcfa;
+  width: 100%
+}
+.login {
+  background: #fff;
+  position: fixed;
+  inset: 0;
+  z-index: 960;
+  padding: 90px 0
+}
+.login__container {
+  padding-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.login__form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #126797
+}
+.login__inputs {
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 45px;
+  margin-bottom: 35px
+}
+.login__input {
+  border-radius: 5px;
+  border: 1px solid rgba(18,103,151,.25);
+  background: #fff;
+  padding: 6px 12px 7px;
+  color: #000;
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal
+}
+.login__input::-webkit-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__input::-moz-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__input:-ms-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__input::-ms-input-placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__input::placeholder {
+  color: rgba(0,0,0,.25);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__title {
+  padding-top: 17px;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+  font-family: "Golos Text";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal
+}
+.login__button {
+  color: #000;
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 16px 36px;
+  border-radius: 10px;
+  background: #a9dcfa;
+  width: 100%
 }
