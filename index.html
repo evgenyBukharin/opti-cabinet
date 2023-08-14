@@ -121,7 +121,7 @@
 			<div class="deals__table">
 				<div class="deals__header">
 					<div class="deals__row">
-						<div class="deals__cell deals__cell-header deals__col-status"></div>
+						<div class="deals__cell deals__cell-header deals__col-status deals__col-status-header"></div>
 						<div class="deals__cell deals__cell-header deals__col-id">ID</div>
 						<div class="deals__cell deals__cell-header deals__col-date">Дата</div>
 						<div class="deals__cell deals__cell-header deals__col-company">Компания</div>
@@ -130,45 +130,30 @@
 						<div class="deals__cell deals__cell-header deals__col-cashback">Кэшбэк</div>
 					</div>
 				</div>
-				<div class="deals__row">
-					<div class="deals__cell deals__col-status">
-						<svg
-							class="deals__circle-red"
-							xmlns="http://www.w3.org/2000/svg"
-							width="40"
-							height="40"
-							viewBox="0 0 20 20"
-							fill="none"
-						>
-							<circle cx="10" cy="10" r="2" fill="#EF940B" />
-						</svg>
-					</div>
-					<div class="deals__cell deals__col-id">257</div>
-					<div class="deals__cell deals__col-date">23.07.2023</div>
-					<div class="deals__cell deals__col-company">ДокторОст</div>
-					<div class="deals__cell deals__col-deal">Создание сайта с калькулятором</div>
-					<div class="deals__cell deals__col-summ deals__col-summ-red"><span>1 500 000 ₽</span></div>
-					<div class="deals__cell deals__col-cashback deals__col-cashback-red"><span>1 500 00 ₽</span></div>
+				<div class="swiper deals__slider">
+					<div class="swiper-wrapper deals__wrapper"></div>
 				</div>
-				<div class="deals__row">
-					<div class="deals__cell deals__col-status">
-						<svg
-							class="deals__circle-green"
-							xmlns="http://www.w3.org/2000/svg"
-							width="40"
-							height="40"
-							viewBox="0 0 20 20"
-							fill="none"
-						>
-							<circle cx="10" cy="10" r="2" fill="#EF940B" />
-						</svg>
+				<div class="deals__footer">
+					<p class="deals__text-all deals__text-footer">
+						Всего:
+						<span class="deals__text-footer deals__text-all-value"></span>
+					</p>
+					<div class="deals__text-pages deals__text-footer">
+						<span class="deals__text-page">
+							Страницы:
+							<span class="deals__text-page deals__text-page-1 deals__text-page-hidden">1</span>
+						</span>
+						<button class="btn-reset deals__button-control deals__button-prev">Пред</button>
+						<div class="deals__container-slider-bullets swiper">
+							<div class="swiper-wrapper deals__pagination"></div>
+						</div>
+						<button class="btn-reset deals__button-control deals__button-next">След.</button>
+						<button class="btn-reset deals__button-control deals__button-last">Последняя</button>
 					</div>
-					<div class="deals__cell deals__col-id">257</div>
-					<div class="deals__cell deals__col-date">23.07.2023</div>
-					<div class="deals__cell deals__col-company">ДокторОст</div>
-					<div class="deals__cell deals__col-deal">Создание сайта с калькулятором</div>
-					<div class="deals__cell deals__col-summ deals__col-summ-green"><span>1 500 000 ₽</span></div>
-					<div class="deals__cell deals__col-cashback deals__col-cashback-blue"><span>1 500 00 ₽</span></div>
+					<p class="deals__text-onpage deals__text-footer">
+						На странице:
+						<select class="deals__select"></select>
+					</p>
 				</div>
 			</div>
 		</div>
