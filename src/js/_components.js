@@ -1,5 +1,5 @@
 import "./components/burger";
 import "./components/calculateProgress";
-import "./components/tableSlider";
-import "./components/select";
-import "./components/cols-hover";
+import "./components/tableSlider-deals";
+import "./components/select-deals";
+import "./components/cols-hover-deals";

@@ -2,7 +2,7 @@ import axios from "axios";
 import Swiper, { Navigation, Pagination, Thumbs } from "swiper";
 Swiper.use([Navigation, Pagination, Thumbs]);
 
-import { makeHovers } from "./cols-hover";
+import { makeHovers } from "./cols-hover-deals";
 
 let sliderData = [];
 axios.get("http://localhost:3000/sliderData").then((r) => {
