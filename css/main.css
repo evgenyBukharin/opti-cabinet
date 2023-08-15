@@ -1639,6 +1639,7 @@ p {
   justify-content: center
 }
 .support__row {
+  width: 1900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex
@@ -1904,6 +1905,10 @@ p {
   width: 1900px;
   background: var(--track-color);
   border-radius: 5px
+}
+.support__slide .support__row:nth-child(2) {
+  -webkit-box-shadow: none;
+  box-shadow: none
 }
 .progress-bar {
   position: relative;
