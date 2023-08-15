@@ -1,6 +1,4 @@
 .header {
-	position: relative;
-	z-index: 970;
 	padding-top: 18px;
 	padding-bottom: 18px;
 	font-family: "Golos Text";
@@ -39,7 +37,7 @@
 			min-height: 35px;
 			transition: background 0.4s ease;
 			&:hover {
-				background: var(--service-title-color);
+				background: var(--black-color);
 			}
 		}
 		&-icon {
@@ -110,8 +108,6 @@
 	.header {
 		&__burger {
 			display: inline-block;
-			position: relative;
-			z-index: 1000;
 		}
 		&__button {
 			&-icon {

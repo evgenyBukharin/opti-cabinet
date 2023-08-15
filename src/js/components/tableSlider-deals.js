@@ -5,22 +5,25 @@ Swiper.use([Navigation, Pagination, Thumbs]);
 import { makeHovers } from "./cols-hover-deals";
 
 let sliderData = [];
-axios
-	.get("http://localhost:3000/sliderData")
-	.then((r) => {
-		sliderData = r.data;
-		makeSlider();
-		makeHovers();
-	})
-	.catch((e) => {
-		console.log(e);
-	});
 
 const tooltipText = {
 	blue: "сделка в работе",
 	green: "выплачена / оплачено",
 	red: "к выплате / оплате",
 };
+
+if (document.querySelector(".deals")) {
+	axios
+		.get("http://localhost:3000/sliderData")
+		.then((r) => {
+			sliderData = r.data;
+			makeSlider();
+			makeHovers();
+		})
+		.catch((e) => {
+			console.log(e);
+		});
+}
 
 function makeSlider() {
 	// верстка внутреннего элемента списка

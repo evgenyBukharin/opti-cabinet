@@ -1,13 +1,10 @@
 .login {
 	background: #fff;
-	position: fixed;
-	inset: 0;
-	z-index: 960;
-	padding: 90px 0;
 	&__container {
 		padding-top: 30px;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		align-items: center;
 	}
 	&__form {
 		padding: 20px;
