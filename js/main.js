@@ -6,43 +6,53 @@
 
 const burger = document.querySelector(".burger");
 const menu = document.querySelector(".menu");
-burger.addEventListener("click", () => {
-  burger.classList.toggle("burger--active");
-  menu.classList.toggle("menu-active");
-});
+if (burger && menu) {
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("burger--active");
+    menu.classList.toggle("menu-active");
+  });
+} else {
+  console.log("no burger or menu");
+}
 
 /***/ }),
 
 /***/ 59:
 /***/ (() => {
 
-const progressBars = document.querySelectorAll(".hero__progress");
-progressBars.forEach(bar => {
-  let track = bar.querySelector(".hero__track");
-  let currentCountEl = bar.parentNode.querySelector(".hero__text-current");
-  let currentCount = currentCountEl.getAttribute("data-current");
-  if (currentCount == 0) {
-    currentCountEl.classList.add("hero__text-stat-bigger-red");
-    track.classList.add("hero__track-red");
-    return;
-  }
-  let allCount = bar.parentNode.querySelector(".hero__text-all").getAttribute("data-all");
-  let widthPersent = currentCount / allCount * 100;
-  track.style.width = widthPersent + "%";
-});
+const progressBars = document.querySelectorAll(".progress-bar");
+if (progressBars) {
+  progressBars.forEach(bar => {
+    let track = bar.querySelector(".progress-bar__track");
+    let currentCountEl = bar.parentNode.querySelector(".progress-bar__text-current");
+    let currentCount = currentCountEl.getAttribute("data-current");
+    if (currentCount == 0) {
+      currentCountEl.classList.add("progress-bar__text-stat-bigger-red");
+      track.classList.add("progress-bar__track-red");
+      return;
+    }
+    let allCount = bar.parentNode.querySelector(".progress-bar__text-all").getAttribute("data-all");
+    let widthPersent = currentCount / allCount * 100;
+    track.style.width = widthPersent + "%";
+  });
+} else {
+  console.log("no progressbars");
+}
 
 /***/ }),
 
 /***/ 407:
 /***/ (() => {
 
-const select = document.querySelector(".deals__select");
-select.addEventListener("change", () => {
-  let url = new URL(window.location.href);
-  if (url.searchParams.get("chunkSize") !== select.value) {
-    url.searchParams.set("chunkSize", select.value);
-    window.location.href = url.href;
-  }
+const selects = document.querySelectorAll(".select");
+selects.forEach(select => {
+  select.addEventListener("change", () => {
+    let url = new URL(window.location.href);
+    if (url.searchParams.get("chunkSize") !== select.value) {
+      url.searchParams.set("chunkSize", select.value);
+      window.location.href = url.href;
+    }
+  });
 });
 
 /***/ })
@@ -14033,7 +14043,7 @@ function EffectCards({
 
 
 
-;// CONCATENATED MODULE: ./src/js/components/cols-hover.js
+;// CONCATENATED MODULE: ./src/js/components/cols-hover-deals.js
 function makeHovers() {
   const statuses = document.querySelectorAll(".deals__col-status");
   const ids = document.querySelectorAll(".deals__col-id");
@@ -14070,17 +14080,21 @@ function makeHovers() {
     });
   }
 }
-;// CONCATENATED MODULE: ./src/js/components/tableSlider.js
+;// CONCATENATED MODULE: ./src/js/components/tableSlider-deals.js
 
 
 core.use([Navigation, Pagination, Thumb]);
 
 let sliderData = [];
-lib_axios.get("http://localhost:3000/sliderData").then(r => {
-  sliderData = r.data;
-  makeSlider();
-  makeHovers();
-});
+if (document.querySelector(".deals")) {
+  lib_axios.get("http://localhost:3000/sliderData").then(r => {
+    sliderData = r.data;
+    makeSlider();
+    makeHovers();
+  }).catch(e => {
+    console.log(e);
+  });
+}
 const tooltipText = {
   blue: "сделка в работе",
   green: "выплачена / оплачено",
@@ -14222,9 +14236,231 @@ function makeSlider() {
     slider.slideTo(formattedData.length - 1, 1000);
   });
 }
+;// CONCATENATED MODULE: ./src/js/components/cols-hover-support.js
+function cols_hover_support_makeHovers() {
+  const stages = document.querySelectorAll(".support__col-stage");
+  const contacts = document.querySelectorAll(".support__col-contact");
+  const deals = document.querySelectorAll(".support__col-deal");
+  const isCloseds = document.querySelectorAll(".support__col-isClosed");
+  const created = document.querySelectorAll(".support__col-created");
+  const comments = document.querySelectorAll(".support__col-comment");
+  const categories = document.querySelectorAll(".support__col-category");
+  const time = document.querySelectorAll(".support__col-time");
+  const completed = document.querySelectorAll(".support__col-completed");
+  const cols = [stages, contacts, deals, isCloseds, created, comments, categories, time, completed];
+  for (let i = 0; i < cols.length; i++) {
+    cols[i].forEach(hoverElement => {
+      hoverElement.onmouseenter = () => {
+        cols[i].forEach(el => {
+          el.classList.add("support__cell-hovered");
+        });
+        if (cols[i - 1]) {
+          cols[i - 1][0].classList.add("support__cell-header-hide-after");
+        }
+        if (cols[i]) {
+          cols[i][0].classList.add("support__cell-header-hide-after");
+        }
+      };
+      hoverElement.onmouseleave = () => {
+        cols[i].forEach(el => {
+          el.classList.remove("support__cell-hovered");
+        });
+        if (cols[i - 1]) {
+          cols[i - 1][0].classList.remove("support__cell-header-hide-after");
+        }
+        if (cols[i]) {
+          cols[i][0].classList.remove("support__cell-header-hide-after");
+        }
+      };
+    });
+  }
+}
+;// CONCATENATED MODULE: ./src/js/components/horizontal-scroll-wheel.js
+function applyHorizontalScroll() {
+  const slides = document.querySelectorAll(".support__slide");
+  slides.forEach(slide => {
+    slide.addEventListener("wheel", e => {
+      e.preventDefault();
+      slide.scrollLeft += e.deltaY;
+    });
+  });
+}
+;// CONCATENATED MODULE: ./src/js/components/tableSlider-support.js
+
+
+core.use([Navigation, Pagination, Thumb]);
+
+
+let tableSlider_support_sliderData = [];
+if (document.querySelector(".support")) {
+  lib_axios.get("http://localhost:3000/supportData").then(r => {
+    tableSlider_support_sliderData = r.data;
+    tableSlider_support_makeSlider();
+    cols_hover_support_makeHovers();
+    applyHorizontalScroll();
+  }).catch(e => {
+    console.log(e);
+  });
+}
+function tableSlider_support_makeSlider() {
+  // верстка внутреннего элемента списка
+  const supportItemInner = `
+		<div class="support__cell support__col-stage"></div>
+		<div class="support__cell support__col-contact"></div>
+		<div class="support__cell support__cell-deal support__col-deal"></div>
+		<div class="support__cell support__col-isClosed"></div>
+		<div class="support__cell support__col-created"></div>
+		<div class="support__cell support__col-comment"></div>
+		<div class="support__cell support__col-category"></div>
+		<div class="support__cell support__col-time"></div>
+		<div class="support__cell support__col-completed"></div>
+	`;
+  const sliderWrapper = document.querySelector(`.support__wrapper`);
+  const formattedData = [];
+
+  // получаем гет параметр
+  const urlParams = new URLSearchParams(window.location.search);
+  let chunkSize = 8;
+  if (urlParams.get("chunkSize") !== null) {
+    chunkSize = +urlParams.get("chunkSize");
+  }
+  const select = document.querySelector(".support__select");
+  let selectOptions = [5, 8, 10, 15];
+  if (!selectOptions.includes(chunkSize)) {
+    selectOptions.push(chunkSize);
+    selectOptions.sort((a, b) => a - b);
+  }
+  [...new Set(selectOptions)].forEach(option => {
+    let optionEl = document.createElement("option");
+    optionEl.setAttribute("value", option);
+    optionEl.innerHTML = option;
+    select.appendChild(optionEl);
+  });
+  select.value = chunkSize;
+  for (let i = 0; i < tableSlider_support_sliderData.length; i += chunkSize) {
+    const chunk = tableSlider_support_sliderData.slice(i, i + chunkSize);
+    formattedData.push(chunk);
+  }
+  formattedData.forEach(array => {
+    // создаем новый слайд
+    let supportSlide = document.createElement("div");
+    supportSlide.classList = `swiper-slide support__slide`;
+    supportSlide.innerHTML = `
+			<div class="support__row">
+				<div class="support__cell support__cell-header support__col-stage">
+					Стадия сделки
+				</div>
+				<div class="support__cell support__cell-header support__col-contact">Контакт</div>
+				<div class="support__cell support__cell-header support__col-deal">
+					Название сделки
+				</div>
+				<div class="support__cell support__cell-header support__col-isClosed">
+					Сделка закрыта
+				</div>
+				<div class="support__cell support__cell-header support__col-created">
+					Дата </br> создания
+				</div>
+				<div class="support__cell support__cell-header support__col-comment">
+					Комментарий
+				</div>
+				<div class="support__cell support__cell-header support__col-category">
+					Категория обращения
+				</div>
+				<div class="support__cell support__cell-header support__col-time">
+					Затраченное время
+				</div>
+				<div class="support__cell support__cell-header support__col-completed">
+					Выполнены работы (информация для клиента/проекта)
+				</div>
+			</div>
+		`;
+    array.forEach(row => {
+      // создем новый айтем
+      let supportItem = document.createElement("div");
+      supportItem.classList = "support__row";
+      supportItem.innerHTML = supportItemInner;
+
+      // изменяем контент внутри
+      supportItem.querySelector(".support__col-stage").innerHTML = row.stage;
+      supportItem.querySelector(".support__col-contact").innerHTML = row.contact;
+      supportItem.querySelector(".support__col-deal").innerHTML = row.deal;
+      supportItem.querySelector(".support__col-isClosed").innerHTML = row.isClosed;
+      supportItem.querySelector(".support__col-created").innerHTML = row.created;
+      supportItem.querySelector(".support__col-comment").innerHTML = row.comment;
+      supportItem.querySelector(".support__col-category").innerHTML = row.category;
+      supportItem.querySelector(".support__col-time").innerHTML = row.time;
+      supportItem.querySelector(".support__col-completed").innerHTML = row.completed;
+
+      // засовываем в лист
+      supportSlide.appendChild(supportItem);
+    });
+    sliderWrapper.appendChild(supportSlide);
+  });
+  const sliderBullets = new core(document.querySelector(`.support__container-slider-bullets`), {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    speed: 500
+  });
+  const slider = new core(document.querySelector(`.support__slider`), {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    speed: 500,
+    allowTouchMove: false,
+    pagination: {
+      el: ".support__pagination",
+      clickable: true,
+      bulletActiveClass: "support__bullet-active",
+      renderBullet: function (index, className) {
+        return `<span class="swiper-slide support__bullet ${className}">${index + 1}</span>`;
+      }
+    },
+    navigation: {
+      nextEl: ".support__button-next",
+      prevEl: ".support__button-prev"
+    },
+    thumbs: {
+      swiper: sliderBullets
+    }
+  });
+
+  // общее количество
+  const allCountSpan = document.querySelector(".support__text-all-value");
+  allCountSpan.innerHTML = tableSlider_support_sliderData.length;
+
+  // 1 page span
+  const textContainer = document.querySelector(".support__text-page");
+  const onePageSpan = document.querySelector(".support__text-page-1");
+  const footerButtons = document.querySelectorAll(".support__button-control");
+  if (formattedData.length == 1) {
+    footerButtons.forEach(btn => {
+      btn.style.display = "none";
+    });
+    onePageSpan.style.marginRight = "0";
+    onePageSpan.classList.remove("support__text-page-hidden");
+    textContainer.style.marginRight = "0";
+  }
+
+  // проверка на наличие последнего ряда без нижней границы
+  let lastSlide = formattedData[formattedData.length - 1];
+  if (lastSlide.length !== chunkSize) {
+    let lastRowNode = document.getElementById(lastSlide[lastSlide.length - 1].id);
+    if (lastRowNode) {
+      lastRowNode.style.boxShadow = "0 -1px 0 var(--border-color), 0 1px 0 var(--border-color)";
+    }
+  }
+
+  // обработчик кнопки "последняя"
+  const lastButton = document.querySelector(".support__button-last");
+  lastButton.addEventListener("click", () => {
+    slider.slideTo(formattedData.length - 1, 1000);
+  });
+}
 // EXTERNAL MODULE: ./src/js/components/select.js
 var components_select = __webpack_require__(407);
 ;// CONCATENATED MODULE: ./src/js/_components.js
+
+
+
 
 
 
