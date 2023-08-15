@@ -1479,7 +1479,8 @@ p {
   height: -moz-fit-content;
   height: fit-content;
   max-width: 980px;
-  overflow: hidden
+  overflow: hidden;
+  border-radius: 5px
 }
 .support__container-stats {
   display: -webkit-box;
