@@ -10634,6 +10634,11 @@ function makeHovers() {
 core.use([Navigation, Pagination, Thumb]);
 
 let sliderData = [];
+const tooltipText = {
+  blue: "сделка в работе",
+  green: "выплачена / оплачено",
+  red: "к выплате / оплате"
+};
 if (document.querySelector(".deals")) {
   // axios
   // 	.get("http://localhost:3000/sliderData")
@@ -10971,11 +10976,6 @@ if (document.querySelector(".deals")) {
   makeSlider();
   makeHovers();
 }
-const tooltipText = {
-  blue: "сделка в работе",
-  green: "выплачена / оплачено",
-  red: "к выплате / оплате"
-};
 function makeSlider() {
   // верстка внутреннего элемента списка
   const dealsItemInner = `
