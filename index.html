@@ -70,7 +70,301 @@
 	</div>
 </header>
 
-			<main class="main"><section class="reg">
+			<main class="main">
+				<section class="hero">
+	<div class="container hero__container">
+		<div class="hero__column hero__column-user">
+			<div class="hero__user hero__border">
+				<img
+					src="./img/avatar.svg"
+					class="image hero__avatar"
+					width="75"
+					height="75"
+					alt="Аватар пользователя"
+				/>
+				<h4 class="hero__title-user">Погребнюк Анатолий</h4>
+			</div>
+			<div class="hero__reports">
+				<a href="./support.html" class="btn-reset hero__report hero__report-support">Отчет по поддержке</a>
+				<a href="./deals.html" class="btn-reset hero__report hero__report-deals">Отчет по сделкам</a>
+			</div>
+		</div>
+		<div class="hero__column hero__column-tarif">
+			<div class="hero__tarif hero__border">
+				<div class="hero__column-inner">
+					<h5 class="hero__title-tarif-small">Мой тариф</h5>
+					<h3 class="hero__title-tarif">Стандарт</h3>
+					<h4 class="hero__title-billing">38 400 руб/мес</h4>
+				</div>
+				<div class="hero__column-inner hero__column-inner-center">
+					<h5 class="hero__title-tarif-small">Остатки по пакетам в этом месяце</h5>
+					<div class="hero__container-stats">
+						<div class="progress-bar__stat">
+							<h5 class="progress-bar__title-tarif-small progress-bar__title-tarif-small-darker">
+								Доработки
+							</h5>
+							<p class="progress-bar__text-stat">
+								<span
+									class="progress-bar__text-stat progress-bar__text-stat-bigger progress-bar__text-current"
+									data-current="4"
+								>
+									4
+								</span>
+								<span class="progress-bar__text-stat progress-bar__text-all" data-all="5">5</span> часов
+							</p>
+							<div class="progress-bar">
+								<div class="progress-bar__track"></div>
+							</div>
+						</div>
+						<div class="progress-bar__stat">
+							<h5 class="progress-bar__title-tarif-small progress-bar__title-tarif-small-darker">
+								Встречи
+							</h5>
+							<p class="progress-bar__text-stat">
+								<span
+									class="progress-bar__text-stat progress-bar__text-stat-bigger progress-bar__text-current"
+									data-current="0"
+								>
+									0
+								</span>
+								<span class="progress-bar__text-stat progress-bar__text-all" data-all="5">5</span> часов
+							</p>
+							<div class="progress-bar">
+								<div class="progress-bar__track"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero__column-inner hero__column-inner-buttons">
+					<div class="hero__container-buttons">
+						<a href="#" class="hero__button hero__button-condition">Условия</a>
+						<a href="#" class="hero__button hero__button-change">Сменить тариф</a>
+					</div>
+				</div>
+			</div>
+			<div class="hero__container-balance hero__border">
+				<ul class="hero__balance list-reset">
+					<li class="hero__item">
+						<h5 class="hero__title-balance">Баллы <span class="hero__text-blue">OPTI</span></h5>
+						<h5 class="hero__value">20 000</h5>
+					</li>
+					<li class="hero__item hero__item-green">
+						<h5 class="hero__title-balance">Выплачено</h5>
+						<h5 class="hero__value">1 500 000</h5>
+					</li>
+					<li class="hero__item hero__item-red">
+						<h5 class="hero__title-balance">К выплате</h5>
+						<h5 class="hero__value">125 000</h5>
+					</li>
+					<li class="hero__item hero__item-blue">
+						<h5 class="hero__title-balance">В работе</h5>
+						<h5 class="hero__value">350 000</h5>
+					</li>
+				</ul>
+				<div class="hero__services">
+					<button class="btn-reset hero__service">Заказать новую услугу</button>
+					<button class="btn-reset hero__service">Пополнить часы доработки</button>
+					<button class="btn-reset hero__service">Перевести баллы в часы</button>
+				</div>
+			</div>
+		</div>
+		<div class="hero__column hero__column-info">
+			<div class="hero__manager hero__border">
+				<div class="hero__row hero__row-manager">
+					<div class="hero__container-manager">
+						<h5 class="hero__title-manager">Ваш менеджер проекта</h5>
+						<h4 class="hero__title-name">Саночкин Олег</h4>
+					</div>
+					<img
+						src="./img/avatar.svg"
+						class="image hero__avatar hero__avatar-manager"
+						width="60"
+						height="60"
+						alt="Аватар менеджера"
+					/>
+				</div>
+				<div class="hero__services hero__services-manager">
+					<button class="btn-reset hero__service hero__service-manager">Назначить online-встречу</button>
+					<button class="btn-reset hero__service hero__service-manager">Написать менеджеру</button>
+				</div>
+			</div>
+			<a class="hero__faq">
+				<h3 class="hero__title-faq">FAQ</h3>
+				<span class="hero__text-faq">ответы на часто задаваемые вопросы</span>
+			</a>
+		</div>
+	</div>
+</section>
+ <section class="support">
+	<div class="container">
+		<div class="support__container">
+			<aside class="support__aside">
+				<div class="support__container-stats">
+					<div class="progress-bar__stat">
+						<h5 class="progress-bar__title-tarif-small progress-bar__title-tarif-small-darker">
+							Доработки
+						</h5>
+						<p class="progress-bar__text-stat">
+							<span
+								class="progress-bar__text-stat progress-bar__text-stat-bigger progress-bar__text-current"
+								data-current="4"
+							>
+								4
+							</span>
+							<span class="progress-bar__text-stat progress-bar__text-all" data-all="5">5</span> часов
+						</p>
+						<div class="progress-bar">
+							<div class="progress-bar__track"></div>
+						</div>
+					</div>
+					<div class="progress-bar__stat">
+						<h5 class="progress-bar__title-tarif-small progress-bar__title-tarif-small-darker">Встречи</h5>
+						<p class="progress-bar__text-stat">
+							<span
+								class="progress-bar__text-stat progress-bar__text-stat-bigger progress-bar__text-current"
+								data-current="0"
+							>
+								0
+							</span>
+							<span class="progress-bar__text-stat progress-bar__text-all" data-all="5">5</span> часов
+						</p>
+						<div class="progress-bar">
+							<div class="progress-bar__track"></div>
+						</div>
+					</div>
+				</div>
+				<button class="btn-reset support__button-refill">Пополнить часы доработки</button>
+				<a href="./" class="support__button">
+					<img
+						loading="lazy"
+						src="./img/left-arrow.svg"
+						class="image deals__icon-arrow"
+						width="6"
+						height="10"
+						alt="Стрелка назад"
+					/>
+					Вернуться в личный кабинет
+				</a>
+			</aside>
+			<div class="support__container-table">
+				<div class="support__table">
+					<div class="swiper support__slider">
+						<div class="swiper-wrapper support__wrapper"></div>
+					</div>
+				</div>
+				<div class="support__footer">
+					<p class="support__text-all support__text-footer">
+						Всего:
+						<span class="support__text-footer support__text-all-value"></span>
+					</p>
+					<div class="support__text-pages support__text-footer">
+						<span class="support__text-page">
+							Страницы:
+							<span class="support__text-page support__text-page-1 support__text-page-hidden">1</span>
+						</span>
+						<button class="btn-reset support__button-control support__button-prev">Пред</button>
+						<div class="support__container-slider-bullets swiper">
+							<div class="swiper-wrapper support__pagination"></div>
+						</div>
+						<button class="btn-reset support__button-control support__button-next">След.</button>
+						<button class="btn-reset support__button-control support__button-last">Последняя</button>
+					</div>
+					<p class="support__text-onpage support__text-footer">
+						На странице:
+						<select class="support__select select"></select>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+ <section class="deals">
+	<div class="container">
+		<div class="deals__container">
+			<aside class="deals__aside">
+				<div class="deals__info">
+					<ul class="deals__balance list-reset">
+						<li class="deals__item">
+							<h5 class="deals__title-balance">Баллы <span class="deals__text-blue">OPTI</span></h5>
+							<h5 class="deals__value">20 000</h5>
+						</li>
+						<li class="deals__item deals__item-green">
+							<h5 class="deals__title-balance">Выплачено</h5>
+							<h5 class="deals__value">1 500 000</h5>
+						</li>
+						<li class="deals__item deals__item-red">
+							<h5 class="deals__title-balance">К выплате</h5>
+							<h5 class="deals__value">125 000</h5>
+						</li>
+						<li class="deals__item deals__item-blue">
+							<h5 class="deals__title-balance">В работе</h5>
+							<h5 class="deals__value">350 000</h5>
+						</li>
+					</ul>
+					<a href="./" class="deals__button">
+						<img
+							loading="lazy"
+							src="./img/left-arrow.svg"
+							class="image deals__icon-arrow"
+							width="6"
+							height="10"
+							alt="Стрелка назад"
+						/>
+						Вернуться в личный кабинет
+					</a>
+				</div>
+				<div class="deals__legend">
+					<h5 class="deals__title-aside">*Цветовые обозначения</h5>
+					<ul class="list-reset deals__list">
+						<li class="deals__tip deals__tip-red">к выплате / к оплате</li>
+						<li class="deals__tip deals__tip-blue">в работе</li>
+						<li class="deals__tip deals__tip-green">выплачено / оплачено</li>
+					</ul>
+				</div>
+			</aside>
+			<div class="deals__table">
+				<div class="deals__header">
+					<div class="deals__row">
+						<div class="deals__cell deals__cell-header deals__col-status deals__col-status-header"></div>
+						<div class="deals__cell deals__cell-header deals__col-id">ID</div>
+						<div class="deals__cell deals__cell-header deals__col-date">Дата</div>
+						<div class="deals__cell deals__cell-header deals__col-company">Компания</div>
+						<div class="deals__cell deals__cell-header deals__col-deal">Сделка</div>
+						<div class="deals__cell deals__cell-header deals__col-summ">Сумма</div>
+						<div class="deals__cell deals__cell-header deals__col-cashback">Кэшбэк</div>
+					</div>
+				</div>
+				<div class="swiper deals__slider">
+					<div class="swiper-wrapper deals__wrapper"></div>
+				</div>
+				<div class="deals__footer">
+					<p class="deals__text-all deals__text-footer">
+						Всего:
+						<span class="deals__text-footer deals__text-all-value"></span>
+					</p>
+					<div class="deals__text-pages deals__text-footer">
+						<span class="deals__text-page">
+							Страницы:
+							<span class="deals__text-page deals__text-page-1 deals__text-page-hidden">1</span>
+						</span>
+						<button class="btn-reset deals__button-control deals__button-prev">Пред</button>
+						<div class="deals__container-slider-bullets swiper">
+							<div class="swiper-wrapper deals__pagination"></div>
+						</div>
+						<button class="btn-reset deals__button-control deals__button-next">След.</button>
+						<button class="btn-reset deals__button-control deals__button-last">Последняя</button>
+					</div>
+					<p class="deals__text-onpage deals__text-footer">
+						На странице:
+						<select class="deals__select select"></select>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+				<section class="reg">
 	<div class="reg__container">
 		<form action="#" class="form reg__form">
 			<h4 class="reg__title">Личный кабинет</h4>
@@ -80,6 +374,19 @@
 			</div>
 			<button class="btn-reset reg__button" type="submit">Зарегистрироваться</button>
 		</form>
+	</div>
+</section>
+ <section class="login">
+	<div class="login__container">
+		<form action="#" class="form login__form">
+			<h4 class="login__title">Личный кабинет</h4>
+			<div class="login__inputs">
+				<input type="text" name="login" id="login" class="login__input" placeholder="Логин" />
+				<input type="password" name="password" id="password" class="login__input" placeholder="Пароль" />
+			</div>
+			<button class="btn-reset login__button" type="submit">Войти</button>
+		</form>
+		<a href="./reg.html" class="login__title">Зарегистрироваться</a>
 	</div>
 </section>
  <section class="menu">
@@ -138,7 +445,8 @@
 		</div>
 	</div>
 </section>
-</main>
+
+			</main>
 		</div>
 	</body>
 </html>
