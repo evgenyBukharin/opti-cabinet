@@ -1540,6 +1540,9 @@ p {
   background-position-x: 75%;
   background-position-y: 50%
 }
+.support {
+  margin-bottom: 20px
+}
 .support__container {
   border-radius: 10px;
   border: 1px solid var(--deals-border-color);
