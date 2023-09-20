@@ -12,35 +12,49 @@ const tooltipText = {
 	red: "к выплате / оплате",
 };
 
+const loader = document.querySelector(".loader");
+const loaderTitle = document.querySelector(".loader__title");
+const loaderSpinner = document.querySelector(".loader__spinner");
+const loaderButton = document.querySelector(".loader__button");
+
+function hideLoader() {
+	loader.classList.add("loader-hidden");
+}
+
+function showError(errorText) {
+	loaderTitle.innerHTML = errorText;
+	loaderSpinner.style.animationPlayState = "paused";
+	loaderButton.classList.add("loader__button-visible");
+}
+
+loaderButton.addEventListener("click", () => {
+	hideLoader();
+});
+
+function showLoader() {
+	loader.classList.remove("loader-hidden");
+}
+
 if (document.querySelector(".deals")) {
+	showLoader();
 	axios
-		.get("http://localhost:3000/sliderData")
+		.get("https://opti.ooo/cabinet/webhook/webhook_deals.php")
 		.then((r) => {
-			sliderData = r.data;
+			sliderData = r.data.dealsSliderData;
 			makeSlider();
 			makeHovers();
+			updateSumm(r.data.summData);
+			hideLoader();
 		})
 		.catch((e) => {
 			console.log(e);
+			showError(e.message);
 		});
 }
 
 function makeSlider() {
 	// верстка внутреннего элемента списка
 	const dealsItemInner = `
-		<div class="deals__cell deals__col-status">
-			<span class="deals__tooltip"></span>
-			<svg
-				class=""
-				xmlns="http://www.w3.org/2000/svg"
-				width="40"
-				height="40"
-				viewBox="0 0 20 20"
-				fill="none"
-			>
-				<circle cx="10" cy="10" r="2" fill="#EF940B" />
-			</svg>
-		</div>
 		<div class="deals__cell deals__col-id"></div>
 		<div class="deals__cell deals__col-date"></div>
 		<div class="deals__cell deals__col-company"></div>
@@ -90,9 +104,6 @@ function makeSlider() {
 
 			// изменяем контент внутри
 			dealsItem.setAttribute("id", row.id);
-			dealsItem.querySelector(".deals__col-status svg").classList.add(`deals__circle-${row.status}`);
-			dealsItem.querySelector(".deals__tooltip").innerHTML = tooltipText[row.status];
-			dealsItem.querySelector(".deals__tooltip").classList.add(`deals__tooltip-${row.status}`);
 			dealsItem.querySelector(".deals__col-id").innerHTML = row.id;
 			dealsItem.querySelector(".deals__col-date").innerHTML = row.date;
 			dealsItem.querySelector(".deals__col-company").innerHTML = row.company;
@@ -112,7 +123,6 @@ function makeSlider() {
 
 	const sliderBullets = new Swiper(document.querySelector(`.deals__container-slider-bullets`), {
 		slidesPerView: 3,
-		spaceBetween: 30,
 		speed: 500,
 	});
 
@@ -168,4 +178,13 @@ function makeSlider() {
 	lastButton.addEventListener("click", () => {
 		slider.slideTo(formattedData.length - 1, 1000);
 	});
+}
+
+function updateSumm(summData) {
+	const valuePaid = document.querySelector(".hero__value-paid");
+	const valueToBePaid = document.querySelector(".hero__value-toBePaid");
+	const valueInWork = document.querySelector(".hero__value-inwork");
+	valuePaid.innerHTML = summData.totalSum;
+	valueToBePaid.innerHTML = summData.totalSumNeed;
+	valueInWork.innerHTML = summData.needSum;
 }

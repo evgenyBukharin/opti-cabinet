@@ -5,18 +5,45 @@ Swiper.use([Navigation, Pagination, Thumbs]);
 import { makeHovers } from "./cols-hover-support";
 import { applyHorizontalScroll } from "./horizontal-scroll-wheel";
 
+const loader = document.querySelector(".loader");
+const loaderTitle = document.querySelector(".loader__title");
+const loaderSpinner = document.querySelector(".loader__spinner");
+const loaderButton = document.querySelector(".loader__button");
+
+function hideLoader() {
+	loader.classList.add("loader-hidden");
+}
+
+function showError(errorText) {
+	loaderTitle.innerHTML = errorText;
+	loaderSpinner.style.animationPlayState = "paused";
+	loaderButton.classList.add("loader__button-visible");
+}
+
+loaderButton.addEventListener("click", () => {
+	hideLoader();
+});
+
+function showLoader() {
+	loader.classList.remove("loader-hidden");
+}
+
 let sliderData = [];
 if (document.querySelector(".support")) {
+	showLoader();
 	axios
-		.get("http://localhost:3000/supportData")
+		.get("https://opti.ooo/cabinet/webhook/webhook_support.php")
 		.then((r) => {
-			sliderData = r.data;
+			sliderData = r.data.supportSliderData;
 			makeSlider();
 			makeHovers();
 			applyHorizontalScroll();
+			updateTime(r.data.timeData);
+			hideLoader();
 		})
 		.catch((e) => {
 			console.log(e);
+			showError(e.message);
 		});
 }
 
@@ -109,6 +136,11 @@ function makeSlider() {
 			supportItem.querySelector(".support__col-isClosed").innerHTML = row.isClosed;
 			supportItem.querySelector(".support__col-created").innerHTML = row.created;
 			supportItem.querySelector(".support__col-comment").innerHTML = row.comment;
+			if (supportItem.querySelector(".support__col-comment img")) {
+				let img = supportItem.querySelector(".support__col-comment img");
+				let src = img.getAttribute("src");
+				img.outerHTML = `<a style="text-decoration: underline;" href="${src}">Прикрепленное изображение</a>`;
+			}
 			supportItem.querySelector(".support__col-category").innerHTML = row.category;
 			supportItem.querySelector(".support__col-time").innerHTML = row.time;
 			supportItem.querySelector(".support__col-completed").innerHTML = row.completed;
@@ -121,7 +153,6 @@ function makeSlider() {
 
 	const sliderBullets = new Swiper(document.querySelector(`.support__container-slider-bullets`), {
 		slidesPerView: 3,
-		spaceBetween: 30,
 		speed: 500,
 	});
 
@@ -178,4 +209,41 @@ function makeSlider() {
 	lastButton.addEventListener("click", () => {
 		slider.slideTo(formattedData.length - 1, 1000);
 	});
+}
+
+function calculateProgress() {
+	const progressBars = document.querySelectorAll(".progress-bar");
+	if (progressBars) {
+		progressBars.forEach((bar) => {
+			let track = bar.querySelector(".progress-bar__track");
+			let currentCountEl = bar.parentNode.querySelector(".progress-bar__text-current");
+			let currentCount = currentCountEl.getAttribute("data-current");
+			if (currentCount == 0) {
+				currentCountEl.classList.add("progress-bar__text-stat-bigger-red");
+				track.classList.add("progress-bar__track-red");
+			} else {
+				currentCountEl.classList.remove("progress-bar__text-stat-bigger-red");
+				track.classList.remove("progress-bar__track-red");
+			}
+			let allCount = bar.parentNode.querySelector(".progress-bar__text-all").getAttribute("data-all");
+			let widthPersent = (currentCount / allCount) * 100;
+			if (widthPersent !== 0) {
+				track.style.width = widthPersent + "%";
+			} else {
+				track.style.width = "4px";
+			}
+		});
+	} else {
+		console.log("no progressbars");
+	}
+}
+
+function updateTime(timeData) {
+	const workSpan = document.querySelector(".progress-bar__text-time-workH");
+	const meetingSpan = document.querySelector(".progress-bar__text-time-meetH");
+	workSpan.innerHTML = timeData.workTimeH;
+	workSpan.setAttribute("data-current", timeData.workTimeH);
+	meetingSpan.innerHTML = timeData.meetTimeH;
+	meetingSpan.setAttribute("data-current", timeData.meetTimeH);
+	calculateProgress();
 }

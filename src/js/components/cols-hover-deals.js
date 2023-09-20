@@ -1,5 +1,4 @@
 export function makeHovers() {
-	const statuses = document.querySelectorAll(".deals__col-status");
 	const ids = document.querySelectorAll(".deals__col-id");
 	const dates = document.querySelectorAll(".deals__col-date");
 	const companies = document.querySelectorAll(".deals__col-company");
@@ -7,7 +6,7 @@ export function makeHovers() {
 	const summs = document.querySelectorAll(".deals__col-summ");
 	const cashbacks = document.querySelectorAll(".deals__col-cashback");
 
-	const cols = [statuses, ids, dates, companies, deals, summs, cashbacks];
+	const cols = [ids, dates, companies, deals, summs, cashbacks];
 
 	for (let i = 0; i < cols.length; i++) {
 		cols[i].forEach((hoverElement) => {
