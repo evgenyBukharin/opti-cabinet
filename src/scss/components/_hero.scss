@@ -105,6 +105,7 @@
 			}
 		}
 		&-balance {
+			position: relative;
 			color: var(--real-black-color);
 			text-align: right;
 			font-family: "Open Sans";
@@ -113,6 +114,30 @@
 			font-weight: 400;
 			line-height: normal;
 			margin-bottom: 6px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 4px;
+			&::after {
+				content: attr(data-tooltip);
+				position: absolute;
+				bottom: 17px;
+				right: 0;
+				padding: 4px 6px;
+				background: var(--white-color);
+				border: 1px solid #126797;
+				border-radius: 5px;
+				text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+			&:hover {
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
 		}
 		&-billing {
 			color: var(--real-black-color);
