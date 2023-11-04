@@ -50,15 +50,15 @@ if (document.querySelector(".support")) {
 function makeSlider() {
 	// верстка внутреннего элемента списка
 	const supportItemInner = `
-		<div class="support__cell support__col-stage"></div>
-		<div class="support__cell support__col-contact"></div>
-		<div class="support__cell support__cell-deal support__col-deal"></div>
-		<div class="support__cell support__col-isClosed"></div>
-		<div class="support__cell support__col-created"></div>
-		<div class="support__cell support__col-comment"></div>
 		<div class="support__cell support__col-category"></div>
+		<div class="support__cell support__col-created"></div>
+		<div class="support__cell support__cell-deal support__col-deal"></div>
+		<div class="support__cell support__col-comment"></div>
 		<div class="support__cell support__col-time"></div>
 		<div class="support__cell support__col-completed"></div>
+		<div class="support__cell support__col-contact"></div>
+		<div class="support__cell support__col-stage"></div>
+		<div class="support__cell support__col-isClosed"></div>
 	`;
 
 	const sliderWrapper = document.querySelector(`.support__wrapper`);
@@ -95,34 +95,34 @@ function makeSlider() {
 		let supportSlide = document.createElement("div");
 		supportSlide.classList = `swiper-slide support__slide`;
 		supportSlide.innerHTML = `
-			<div class="support__row">
-				<div class="support__cell support__cell-header support__col-stage">
-					Стадия сделки
-				</div>
-				<div class="support__cell support__cell-header support__col-contact">Контакт</div>
-				<div class="support__cell support__cell-header support__col-deal">
-					Название сделки
-				</div>
-				<div class="support__cell support__cell-header support__col-isClosed">
-					Сделка закрыта
-				</div>
-				<div class="support__cell support__cell-header support__col-created">
-					Дата </br> создания
-				</div>
-				<div class="support__cell support__cell-header support__col-comment">
-					Комментарий
-				</div>
-				<div class="support__cell support__cell-header support__col-category">
-					Категория обращения
-				</div>
-				<div class="support__cell support__cell-header support__col-time">
-					Затраченное время
-				</div>
-				<div class="support__cell support__cell-header support__col-completed">
-					Выполнены работы (информация для клиента/проекта)
-				</div>
-			</div>
-		`;
+            <div class="support__row">
+                <div class="support__cell support__cell-header support__col-category">
+                    Категория обращения
+                </div>
+                <div class="support__cell support__cell-header support__col-created">
+                    Дата </br> создания
+                </div>
+                <div class="support__cell support__cell-header support__col-deal">
+                    Название сделки
+                </div>
+                <div class="support__cell support__cell-header support__col-comment">
+                    Комментарий
+                </div>
+                <div class="support__cell support__cell-header support__col-time">
+                    Затраченное время
+                </div>
+                <div class="support__cell support__cell-header support__col-completed">
+                    Выполнены работы (информация для клиента/проекта)
+                </div>
+                <div class="support__cell support__cell-header support__col-contact">Контакт</div>
+                <div class="support__cell support__cell-header support__col-stage">
+                    Стадия сделки
+                </div>
+                <div class="support__cell support__cell-header support__col-isClosed">
+                    Сделка закрыта
+                </div>
+            </div>
+        `;
 		array.forEach((row) => {
 			// создем новый айтем
 			let supportItem = document.createElement("div");
@@ -245,5 +245,7 @@ function updateTime(timeData) {
 	workSpan.setAttribute("data-current", timeData.workTimeH);
 	meetingSpan.innerHTML = timeData.meetTimeH;
 	meetingSpan.setAttribute("data-current", timeData.meetTimeH);
+	const overworkLastMonthSpan = document.querySelector(".progress-bar__text-all-lastmonth-overwork");
+	overworkLastMonthSpan.innerHTML = timeData.workTimeLastMonth;
 	calculateProgress();
 }

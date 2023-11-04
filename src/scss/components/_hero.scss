@@ -109,7 +109,7 @@
 			color: var(--real-black-color);
 			text-align: right;
 			font-family: "Open Sans";
-			font-size: 8px;
+			font-size: 9px;
 			font-style: normal;
 			font-weight: 400;
 			line-height: normal;
@@ -121,8 +121,8 @@
 			&::after {
 				content: attr(data-tooltip);
 				position: absolute;
-				bottom: 17px;
-				right: 0;
+				top: -18px;
+				right: 4px;
 				padding: 4px 6px;
 				background: var(--white-color);
 				border: 1px solid #126797;
@@ -131,6 +131,7 @@
 				opacity: 0;
 				visibility: hidden;
 				transition: opacity 0.3s ease, visibility 0.3s ease;
+				max-width: 113px;
 			}
 			&:hover {
 				&::after {
